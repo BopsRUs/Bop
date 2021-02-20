@@ -12,26 +12,27 @@ struct ProfileView: View {
     let profileLinkNames: [String] =
     ["Followers", "Following"]
     var body: some View {
-        VStack(){
-            Button(action: {
-                print("Settings Pressed!")
-            }){
-                Text("Settings")
-            }
-            NavigationView{
-                VStack{
-                    ForEach(profileLinkNames, id: \.self)
-                    { profileLinkName in
-                        Text(profileLinkName)
-                            .font(.body)
-                    }
+        NavigationView{
+            VStack{
+                HStack{
                     Spacer()
+                    NavigationLink(
+                        destination: SettingsView()){
+                        Text("Settings")
+                    }
                 }
-                    .navigationBarTitle(profName)
+                HStack{
+                    Text("Followers")
+                        .padding(.horizontal)
+                    Text("Following")
+                        .padding(.horizontal)
+                }
+                Spacer()
             }
-            
-            Spacer()
+            .navigationBarTitle("Profile")
         }
+        .padding(.horizontal)
+        
     }
 }
 

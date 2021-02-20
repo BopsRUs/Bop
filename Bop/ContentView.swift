@@ -9,10 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Bop")
-            .fontWeight(.heavy)
-            .foregroundColor(Color.green)
-            .padding(.all)
+        
+        ScrollView{
+            LazyVStack{
+                LineGraph()
+                ForEach(1...100, id: \.self){ value in
+                    let rand = Float.random(in: -100...100)
+                    HStack{
+                        Text("Stock: ")
+                        Spacer()
+                        if(rand >= 0){
+                            Text("+\(rand,specifier: "%.2f")")
+                                .padding(.trailing, 6.0)
+                                .frame(width: 70, height: 30, alignment: .trailing)
+                                .background(RoundedRectangle(cornerRadius: 4)
+                                                .fill(Color.green))
+                        }
+                        else{
+                            Text("\(rand,specifier: "%.2f")")
+                                .padding(.trailing, 6.0)
+                                .frame(width: 70, height: 30, alignment: .trailing)
+                                .background(RoundedRectangle(cornerRadius: 4)
+                                                .fill(Color.red))
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 10)
+                    Divider()
+                }
+            }
+        }
     }
 }
 
