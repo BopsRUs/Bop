@@ -9,48 +9,33 @@ import SwiftUI
 let artists = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
 struct ContentView: View {
     var body: some View {
-        ScrollView{
+        NavigationView{
+            //Makes the large line graph at the top
             LineView(data: [8,23,54,32,12,37,7,23,43],title:"Portfolio")
                 .padding(.bottom, 200)
             Text("Overall: $10,301.21")
-            LazyVStack{
-                ForEach(artists, id: \.self){ value in
-                    let rand = Float.random(in: -100...100)
-                    let numShares = Int.random(in: 1...100)
-                    Divider()
-                    HStack{
-                        //Left elements
-                        VStack(alignment: .leading){
-                            Text("\(value)")
-                            Text("Shares: \(numShares)")
-                                .fontWeight(.light)
-                                .font(.system(size: 15))
-                        }
-                        Spacer()
-                        //logic handles color for stock change box
-                        if(rand >= 0){
-                            Text("+\(rand,specifier: "%.2f")")
-                                .padding(.trailing, 6.0)
-                                .frame(width: 70, height: 30, alignment: .trailing)
-                                .background(RoundedRectangle(cornerRadius: 4)
-                                                .fill(Color.green))
-                        }
-                        else{
-                            Text("\(rand,specifier: "%.2f")")
-                                .padding(.trailing, 6.0)
-                                .frame(width: 70, height: 30, alignment: .trailing)
-                                .background(RoundedRectangle(cornerRadius: 4)
-                                                .fill(Color.red))
+            ScrollView{
+                LazyVStack{
+                    //loop generates the feed that shows a person's portfolio
+                    ForEach(artists, id: \.self){ value in
+                        let rand = Float.random(in: -100...100)
+                        let numShares = Int.random(in: 1...100)
+                        Divider()
+                        let smallStock = SmallStock(name: value, numShares: Float(numShares), delta: rand)
+                        //view that handles the smaller individual stocks views
+                        Button(action:{
+                            StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))
+                            print("\(value) pressed!")
+                        }){
+                            SmallStockView(smallStock: smallStock)
+                                //this sets all text color to black in the view
+                                .foregroundColor(.black)
                         }
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical, 10)
-                    .clipped()
-                    
                 }
             }
+            .padding(.top)
         }
-        .padding(.top)
     }
 }
 

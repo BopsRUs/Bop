@@ -16,7 +16,6 @@ struct SearchView: View {
             SearchBar(text: .constant(""))
             Spacer()
         }
-        
     }
 }
 

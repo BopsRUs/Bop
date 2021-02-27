@@ -22,6 +22,8 @@
 		DD8E254325BF9ADC00CB271C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8E254225BF9ADC00CB271C /* Preview Assets.xcassets */; };
 		DD8E254E25BF9ADC00CB271C /* BopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E254D25BF9ADC00CB271C /* BopTests.swift */; };
 		DD8E255925BF9ADC00CB271C /* BopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E255825BF9ADC00CB271C /* BopUITests.swift */; };
+		DDF489FF25E9A52300EDCB6A /* SmallStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF489FE25E9A52300EDCB6A /* SmallStockView.swift */; };
+		DDF48A0425E9C6FD00EDCB6A /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF48A0325E9C6FD00EDCB6A /* StockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		DD8E255425BF9ADC00CB271C /* BopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8E255825BF9ADC00CB271C /* BopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BopUITests.swift; sourceTree = "<group>"; };
 		DD8E255A25BF9ADC00CB271C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDF489FE25E9A52300EDCB6A /* SmallStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallStockView.swift; sourceTree = "<group>"; };
+		DDF48A0325E9C6FD00EDCB6A /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +97,14 @@
 		DD0CDA1F25E33B4900E59C08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDF489FA25E9A3FD00EDCB6A /* SubViews */,
 				DD8E253D25BF9ADA00CB271C /* ContentView.swift */,
+				DDF48A0325E9C6FD00EDCB6A /* StockView.swift */,
 				DD0CD9FE25DDA95C00E59C08 /* SearchView.swift */,
 				DD0CD9F425DDA46300E59C08 /* MainView.swift */,
 				DD0CD9F925DDA6E200E59C08 /* ProfileView.swift */,
 				DD0CDA0325DDAA7C00E59C08 /* SocialView.swift */,
 				DD0CDA0D25E04E5A00E59C08 /* SettingsView.swift */,
-				DD0CDA3625E43A0500E59C08 /* LineView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +176,15 @@
 				DD8E255A25BF9ADC00CB271C /* Info.plist */,
 			);
 			path = BopUITests;
+			sourceTree = "<group>";
+		};
+		DDF489FA25E9A3FD00EDCB6A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				DD0CDA3625E43A0500E59C08 /* LineView.swift */,
+				DDF489FE25E9A52300EDCB6A /* SmallStockView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,10 +323,12 @@
 				DD0CD9FF25DDA95C00E59C08 /* SearchView.swift in Sources */,
 				DD0CDA3725E43A0500E59C08 /* LineView.swift in Sources */,
 				DD0CD9FA25DDA6E200E59C08 /* ProfileView.swift in Sources */,
+				DDF489FF25E9A52300EDCB6A /* SmallStockView.swift in Sources */,
 				DD8E253E25BF9ADA00CB271C /* ContentView.swift in Sources */,
 				DD0CD9F525DDA46300E59C08 /* MainView.swift in Sources */,
 				DD8E253C25BF9ADA00CB271C /* BopApp.swift in Sources */,
 				DD0CDA0425DDAA7C00E59C08 /* SocialView.swift in Sources */,
+				DDF48A0425E9C6FD00EDCB6A /* StockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
