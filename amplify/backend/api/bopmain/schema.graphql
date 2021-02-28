@@ -1,0 +1,15 @@
+type Stocks @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  bopid: String!
+  quantity: String!
+  user: User @connection(name: "Portfolio")
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  email: String
+  portfolio: [Stocks] @connection(name: "Portfolio")
+}
+ 

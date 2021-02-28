@@ -1,0 +1,121 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateStocks {
+  onCreateStocks {
+    id
+    name
+    bopid
+    quantity
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateStocks {
+  onUpdateStocks {
+    id
+    name
+    bopid
+    quantity
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteStocks {
+  onDeleteStocks {
+    id
+    name
+    bopid
+    quantity
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
