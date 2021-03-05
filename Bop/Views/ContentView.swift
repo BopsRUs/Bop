@@ -16,7 +16,7 @@ struct ContentView: View {
             //Makes the large line graph at the top
             LineView(data: [8,23,54,32,12,37,7,23,43],title:"Portfolio")
                 .padding(.bottom, 200)
-            Text("Overall: $10,301.21").onAppear{self.performOnAppear()
+            Text("Overall: $10,301.21")//.onAppear{self.performOnAppear()
             ScrollView{
                 LazyVStack{
                     //loop generates the feed that shows a person's portfolio
@@ -47,17 +47,17 @@ struct ContentView: View {
         let item = User(id: "69696969", username: "superuser",
                        email: "test@gmail.com", portfolio: [s])
 
-        Amplify.DataStore.save(item) { result in
+        Amplify.DataStore.query(Stocks.self) { result in
            switch(result) {
            case .success(let savedItem):
-               print("Saved item: \(savedItem.username)")
+               print("Saved item: \(savedItem)")
            case .failure(let error):
                print("Could not save item to datastore: \(error)")
            }
         }
     }
 
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

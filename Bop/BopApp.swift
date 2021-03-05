@@ -11,12 +11,24 @@ import SwiftUI
 
 @main
 struct BopApp: App {
+    
+    @ObservedObject var auth = AuthService()
+    
     public init() {
         configureAmplify()
+        auth.checkSessionStatus()
+        auth.observeAuthEvents()
     }
     var body: some Scene {
         WindowGroup {
-            MainView()
+            if auth.isSignedIn {
+                MainView()
+                    .environmentObject(auth)
+            } else {
+                LogInView()
+                    .environmentObject(auth)
+            }
+
         }
     }
 }
@@ -29,6 +41,8 @@ func configureAmplify() {
     do {
         try Amplify.add(plugin: apiPlugin)
         try Amplify.add(plugin: dataStorePlugin)
+        try Amplify.add(plugin: AWSCognitoAuthPlugin())
+        
         try Amplify.configure()
         print("Initialized Amplify");
     } catch {

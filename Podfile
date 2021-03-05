@@ -8,6 +8,7 @@ target 'Bop' do
   pod 'AWSAppSync'
   pod 'AmplifyPlugins/AWSAPIPlugin'
   pod 'AmplifyPlugins/AWSDataStorePlugin'
+  pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
 
   # Pods for Bop
 
