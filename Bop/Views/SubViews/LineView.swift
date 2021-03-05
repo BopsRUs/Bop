@@ -36,7 +36,7 @@ struct LineView: View {
                     }
                 }
                 .offset(x: 0, y: 0)
-                .padding(35)
+                .padding(.bottom, 35)
                 .padding(.leading, 15)
                 ZStack{
                     GeometryReader{ reader in

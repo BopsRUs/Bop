@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import Amplify
+import AmplifyPlugins
+
 let artists = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
-let totalPortfolioValue = "10,233.20"
 struct ContentView: View {
     var body: some View {
         NavigationView{
+            //Makes the large line graph at the top
+            LineView(data: [8,23,54,32,12,37,7,23,43],title:"Portfolio")
+                .padding(.bottom, 200)
+            Text("Overall: $10,301.21")//.onAppear{self.performOnAppear()
             ScrollView{
-                //Makes the large line graph at the top
-                LineView(data: [8,23,54,32,12,37,7,23,43])
-                    .padding(.bottom, 120)
-                    .padding(.top, 60)
-                    .navigationBarTitle("Portfolio \n $\(totalPortfolioValue)", displayMode: .large)
                 LazyVStack{
                     //loop generates the feed that shows a person's portfolio
                     ForEach(artists, id: \.self){ value in
@@ -25,7 +26,10 @@ struct ContentView: View {
                         Divider()
                         let smallStock = SmallStock(name: value, numShares: Float(numShares), delta: rand)
                         //view that handles the smaller individual stocks views
-                        NavigationLink(destination: StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))){
+                        Button(action:{
+                            StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))
+                            print("\(value) pressed!")
+                        }){
                             SmallStockView(smallStock: smallStock)
                                 //this sets all text color to black in the view
                                 .foregroundColor(.black)
@@ -33,9 +37,27 @@ struct ContentView: View {
                     }
                 }
             }
+            .padding(.top)
         }
     }
-}
+
+    }
+    func performOnAppear() {
+        let s = Stocks(id: "1", name: "Boyz II Men", bopid: "1", quantity: "1")
+        let item = User(id: "69696969", username: "superuser",
+                       email: "test@gmail.com", portfolio: [s])
+
+        Amplify.DataStore.query(Stocks.self) { result in
+           switch(result) {
+           case .success(let savedItem):
+               print("Saved item: \(savedItem)")
+           case .failure(let error):
+               print("Could not save item to datastore: \(error)")
+           }
+        }
+    }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import Amplify
+
+
 
 struct MainView: View {
+    @EnvironmentObject var auth: AuthService
     var body: some View {
         TabView{
             ContentView()
@@ -29,6 +33,8 @@ struct MainView: View {
                 }
             
         }
+
+        
     }
 }
 
