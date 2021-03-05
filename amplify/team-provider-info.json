@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bopmain-dev-162500-authRole",
+      "UnauthRoleArn": "arn:aws:iam::850547186348:role/amplify-bopmain-dev-162500-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::850547186348:role/amplify-bopmain-dev-162500-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bopmain-dev-162500-deployment",
+      "UnauthRoleName": "amplify-bopmain-dev-162500-unauthRole",
+      "StackName": "amplify-bopmain-dev-162500",
+      "StackId": "arn:aws:cloudformation:us-east-1:850547186348:stack/amplify-bopmain-dev-162500/40c77cf0-7942-11eb-9b6c-0a637f9cba95",
+      "AmplifyAppId": "dw4q221z97tf"
+    },
+    "categories": {
+      "auth": {
+        "bopmainf10a6c03": {}
+      }
+    }
+  }
+}
