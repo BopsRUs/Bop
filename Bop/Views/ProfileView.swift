@@ -8,28 +8,54 @@
 import SwiftUI
 
 var profName = "Justin Hurley"
+
 struct ProfileView: View {
-    let profileLinkNames: [String] =
-    ["Followers", "Following"]
+//    let profileLinkNames: [String] =
+//    ["Followers", "Following"]
     var body: some View {
-        NavigationView{
-            VStack{
-                HStack{
+        
+        NavigationView {
+            
+            VStack {
+                
+                //followers/following stack
+                HStack {
                     Spacer()
+                    //followers
                     NavigationLink(
-                        destination: SettingsView()){
-                        Text("Settings")
+                        destination: SettingsView()) {
+                        VStack {
+                            
+                            Text("Followers")
+                                .padding(.horizontal)
+                            Text("420")
+                        }
                     }
+                    .buttonStyle(PlainButtonStyle())
+                    Spacer()
+                    //following
+                    NavigationLink(
+                        destination: SettingsView()) {
+                        VStack {
+                            Text("Following")
+                                .padding(.horizontal)
+                            Text("69")
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    Spacer()
                 }
-                HStack{
-                    Text("Followers")
-                        .padding(.horizontal)
-                    Text("Following")
-                        .padding(.horizontal)
-                }
+                
                 Spacer()
+                
             }
             .navigationBarTitle("Profile")
+            .navigationBarItems(trailing: NavigationLink(destination: SettingsView()) {
+                Image(systemName: "gear")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    
+            })
         }
         .padding(.horizontal)
         
