@@ -15,8 +15,6 @@
 		A7BCB7C118421F9B95B2DD13 /* Pods_Bop_BopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641B0C999B2DF737A5063A94 /* Pods_Bop_BopUITests.framework */; };
 		AA65ECA6DE570422D457E1D0 /* Pods_BopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2321EBF3BBF070C4D5EE593 /* Pods_BopTests.framework */; };
 		B4E2585BE064446EBB4AF6E6 /* Stocks+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7A4FCBDDE4DAE91AF4D79 /* Stocks+Schema.swift */; };
-		BD7B0ED925EAF12700C5B85C /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BD7B0ED825EAF12700C5B85C /* amplifyconfiguration.json */; };
-		BD7B0EDE25EAF13100C5B85C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BD7B0EDD25EAF13100C5B85C /* awsconfiguration.json */; };
 		BD7B0EE325EC1B3100C5B85C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B0EE225EC1B3100C5B85C /* API.swift */; };
 		BD7B0F0225EC3C7A00C5B85C /* schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = BD7B0F0125EC3C7A00C5B85C /* schema.graphql */; };
 		BD9E92C525EED85E00FEB819 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E92C425EED85E00FEB819 /* AuthService.swift */; };
@@ -75,8 +73,6 @@
 		8EDE09AA01CC4A219A19146F /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		9584DA359E497E053A310D1B /* Pods-Bop-BopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bop-BopUITests.release.xcconfig"; path = "Target Support Files/Pods-Bop-BopUITests/Pods-Bop-BopUITests.release.xcconfig"; sourceTree = "<group>"; };
 		99E68E1A8CA3F5F49748E21D /* Pods-Bop-BopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bop-BopUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bop-BopUITests/Pods-Bop-BopUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		BD7B0ED825EAF12700C5B85C /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
-		BD7B0EDD25EAF13100C5B85C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		BD7B0EE225EC1B3100C5B85C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BD7B0F0125EC3C7A00C5B85C /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/bopmain/schema.graphql; sourceTree = SOURCE_ROOT; };
 		BD9E92C425EED85E00FEB819 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -238,8 +234,6 @@
 		DD8E253A25BF9ADA00CB271C /* Bop */ = {
 			isa = PBXGroup;
 			children = (
-				BD7B0EDD25EAF13100C5B85C /* awsconfiguration.json */,
-				BD7B0ED825EAF12700C5B85C /* amplifyconfiguration.json */,
 				DD0CDA2025E33B7000E59C08 /* Utilities */,
 				DD0CDA1F25E33B4900E59C08 /* Views */,
 				DD8E253B25BF9ADA00CB271C /* BopApp.swift */,
@@ -396,9 +390,7 @@
 			files = (
 				DD8E254325BF9ADC00CB271C /* Preview Assets.xcassets in Resources */,
 				DD8E254025BF9ADC00CB271C /* Assets.xcassets in Resources */,
-				BD7B0EDE25EAF13100C5B85C /* awsconfiguration.json in Resources */,
 				BD7B0F0225EC3C7A00C5B85C /* schema.graphql in Resources */,
-				BD7B0ED925EAF12700C5B85C /* amplifyconfiguration.json in Resources */,
 				9B398A76FD1640B49AC5EA82 /* amplifyconfiguration.json in Resources */,
 				3153AE5964734769970E5BA3 /* awsconfiguration.json in Resources */,
 			);
@@ -708,6 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bop/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Bop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -730,6 +723,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bop/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Bop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
