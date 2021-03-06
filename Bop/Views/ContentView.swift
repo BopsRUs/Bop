@@ -9,27 +9,27 @@ import SwiftUI
 import Amplify
 import AmplifyPlugins
 
-let artists = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
+let names = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
+let totalPortfolioValue = "10,233.20"
 struct ContentView: View {
     var body: some View {
         NavigationView{
-            //Makes the large line graph at the top
-            LineView(data: [8,23,54,32,12,37,7,23,43],title:"Portfolio")
-                .padding(.bottom, 200)
-            Text("Overall: $10,301.21")//.onAppear{self.performOnAppear()
             ScrollView{
+                //Makes the large line graph at the top
+                LineView(data: [8,23,54,32,12,37,7,23,43])
+                    .padding(.bottom, 120)
+                    .padding(.top, 40)
+                    .navigationBarTitle("Portfolio \n $\(totalPortfolioValue)", displayMode: .large)
+                Text("Overall: $\(totalPortfolioValue)")//.onAppear{self.performOnAppear()
                 LazyVStack{
                     //loop generates the feed that shows a person's portfolio
-                    ForEach(artists, id: \.self){ value in
+                    ForEach(names, id: \.self){ value in
                         let rand = Float.random(in: -100...100)
                         let numShares = Int.random(in: 1...100)
                         Divider()
                         let smallStock = SmallStock(name: value, numShares: Float(numShares), delta: rand)
                         //view that handles the smaller individual stocks views
-                        Button(action:{
-                            StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))
-                            print("\(value) pressed!")
-                        }){
+                        NavigationLink(destination: StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))){
                             SmallStockView(smallStock: smallStock)
                                 //this sets all text color to black in the view
                                 .foregroundColor(.black)
@@ -43,9 +43,9 @@ struct ContentView: View {
 
     }
     func performOnAppear() {
-        let s = Stocks(id: "1", name: "Boyz II Men", bopid: "1", quantity: "1")
-        let item = User(id: "69696969", username: "superuser",
-                       email: "test@gmail.com", portfolio: [s])
+//        let s = Stocks(id: "1", name: "Boyz II Men", bopid: "1", quantity: "1")
+//        let item = User(id: "69696969", username: "superuser",
+//                       email: "test@gmail.com", portfolio: [s])
 
         Amplify.DataStore.query(Stocks.self) { result in
            switch(result) {

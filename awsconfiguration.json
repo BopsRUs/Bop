@@ -1,0 +1,60 @@
+{
+    "UserAgent": "aws-amplify/cli",
+    "Version": "0.1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://ti2wldlcjvevliigl7izfirj74.appsync-api.us-east-1.amazonaws.com/graphql",
+            "Region": "us-east-1",
+            "AuthMode": "API_KEY",
+            "ApiKey": "da2-a7nfp7ayp5bftkcrymctjhq7nu",
+            "ClientDatabasePrefix": "bopmain_API_KEY"
+        },
+        "bopmain_AWS_IAM": {
+            "ApiUrl": "https://ti2wldlcjvevliigl7izfirj74.appsync-api.us-east-1.amazonaws.com/graphql",
+            "Region": "us-east-1",
+            "AuthMode": "AWS_IAM",
+            "ClientDatabasePrefix": "bopmain_AWS_IAM"
+        }
+    },
+    "DynamoDBObjectMapper": {
+        "Default": {
+            "Region": "us-east-1"
+        }
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-east-1:10783d96-908d-4d68-aeaf-7e2134fc520f",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-east-1_T7aScXlkr",
+            "AppClientId": "msc0jjd2dpn4b5n1ac04t8l2k",
+            "Region": "us-east-1"
+        }
+    },
+    "Auth": {
+        "Default": {
+            "OAuth": {
+                "WebDomain": "bopmainf10a6c03-f10a6c03-dev.auth.us-east-1.amazoncognito.com",
+                "AppClientId": "msc0jjd2dpn4b5n1ac04t8l2k",
+                "SignInRedirectURI": "myapp://",
+                "SignOutRedirectURI": "myapp://",
+                "Scopes": [
+                    "phone",
+                    "email",
+                    "openid",
+                    "profile",
+                    "aws.cognito.signin.user.admin"
+                ]
+            },
+            "authenticationFlowType": "USER_SRP_AUTH"
+        }
+    }
+}
