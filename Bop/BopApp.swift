@@ -18,12 +18,14 @@ struct BopApp: App {
         configureAmplify()
         auth.checkSessionStatus()
         auth.observeAuthEvents()
+        auth.fetchAttributes()
     }
     var body: some Scene {
         WindowGroup {
             if auth.isSignedIn {
                 MainView()
                     .environmentObject(auth)
+                
             } else {
                 LogInView()
                     .environmentObject(auth)
