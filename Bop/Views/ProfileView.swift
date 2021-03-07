@@ -25,10 +25,10 @@ struct ProfileView: View {
                     NavigationLink(
                         destination: SettingsView()) {
                         VStack {
-                            
+                            Text("420")
+                                .font(.system(size: 22))
                             Text("Followers")
                                 .padding(.horizontal)
-                            Text("420")
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -37,14 +37,16 @@ struct ProfileView: View {
                     NavigationLink(
                         destination: SettingsView()) {
                         VStack {
+                            Text("69")
+                                .font(.system(size: 22))
                             Text("Following")
                                 .padding(.horizontal)
-                            Text("69")
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
                 }
+                .padding(.top)
                 
                 Spacer()
                 
