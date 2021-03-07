@@ -23,7 +23,7 @@ struct ProfileView: View {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: SettingsView()) {
+                        destination: FollowerView()) {
                         VStack {
                             Text("420")
                                 .font(.system(size: 22))
@@ -35,7 +35,7 @@ struct ProfileView: View {
                     Spacer()
                     //following
                     NavigationLink(
-                        destination: SettingsView()) {
+                        destination: FollowerView()) {
                         VStack {
                             Text("69")
                                 .font(.system(size: 22))
