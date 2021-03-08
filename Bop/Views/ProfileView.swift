@@ -10,8 +10,11 @@ import SwiftUI
 var profName = "Justin Hurley"
 
 struct ProfileView: View {
-//    let profileLinkNames: [String] =
-//    ["Followers", "Following"]
+    
+//    init() {
+//        AuthService.fetchAttributes()
+//    }
+
     var body: some View {
         
         NavigationView {
@@ -23,7 +26,7 @@ struct ProfileView: View {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: FollowerView()) {
+                        destination: FollowerView(/*followers_selected: true, following_selected: false*/)) {
                         VStack {
                             Text("420")
                                 .font(.system(size: 22))
@@ -35,7 +38,7 @@ struct ProfileView: View {
                     Spacer()
                     //following
                     NavigationLink(
-                        destination: FollowerView()) {
+                        destination: FollowerView(/*followers_selected: false, following_selected: true*/)) {
                         VStack {
                             Text("69")
                                 .font(.system(size: 22))

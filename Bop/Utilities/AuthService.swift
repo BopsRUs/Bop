@@ -64,6 +64,16 @@ class AuthService: ObservableObject {
             }
         }
     }
+    func fetchAttributes() {
+        Amplify.Auth.fetchUserAttributes() { result in
+            switch result {
+            case .success(let attributes):
+                print("User attributes - \(attributes)")
+            case .failure(let error):
+                print("Fetching user attributes failed with error \(error)")
+            }
+        }
+    }
     func signOut() {
         _ = Amplify.Auth.signOut { result in
             switch result {
