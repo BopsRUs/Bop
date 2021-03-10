@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-var profName = "Justin Hurley"
+let usersList = ["Sam", "Justin", "Luke", "JH", "Aidan"]
 
 struct ProfileView: View {
     
-//    init() {
-//        AuthService.fetchAttributes()
-//    }
+    @State var username: String = "sam_winiarski"
+    @State var followers: Int = 420
+    @State var following: Int = 69
 
     var body: some View {
         
@@ -21,14 +21,21 @@ struct ProfileView: View {
             
             VStack {
                 
+                Image(systemName: "smiley")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .padding(.top)
+                
                 //followers/following stack
                 HStack {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: FollowerView(/*followers_selected: true, following_selected: false*/)) {
+                        destination: FollowerView(users: [], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
+                        //destination: FollowerView(username: "sam")) {
+//                        destination: FollowerView(followers_selected: true, following_selected: false)) {
                         VStack {
-                            Text("420")
+                            Text(String(followers))
                                 .font(.system(size: 22))
                             Text("Followers")
                                 .padding(.horizontal)
@@ -38,9 +45,12 @@ struct ProfileView: View {
                     Spacer()
                     //following
                     NavigationLink(
-                        destination: FollowerView(/*followers_selected: false, following_selected: true*/)) {
+                        //destination: FollowerView())
+//                        destination: FollowerView(username: "sam")) {
+                        destination: FollowerView(users: [], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
+//                        destination: FollowerView(followers_selected: false, following_selected: true)) {
                         VStack {
-                            Text("69")
+                            Text(String(following))
                                 .font(.system(size: 22))
                             Text("Following")
                                 .padding(.horizontal)

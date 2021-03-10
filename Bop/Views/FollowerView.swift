@@ -10,11 +10,18 @@ import SwiftUI
 struct FollowerView: View {
     
     @State var users: [String] = ["Sam", "Justin", "Luke", "JH", "Aidan"]
-    @State var username: String = "username here"
-    @State var followers: Int = 420
-    @State var following: Int = 69
+    @State var username: String = "sam_winiarski"
+    @State var followers: Int = 69
+    @State var following: Int = 420
     @State var followers_selected: Bool = true
     @State var following_selected: Bool = false
+    
+//    @State var users: [String]
+//    @State var username: String
+//    @State var followers: Int
+//    @State var following: Int
+//    @State var followers_selected: Bool
+//    @State var following_selected: Bool
     
     var body: some View {
         VStack {
@@ -56,7 +63,7 @@ struct FollowerView: View {
 
 struct FollowerView_Previews: PreviewProvider {
     static var previews: some View {
-        //FollowerView(followers_selected: Bool, following_selected: Bool)
         FollowerView()
+//        FollowerView(users: [String], username: String, followers: Int, following: Int, followers_selected: Bool, following_selected: Bool)
     }
 }
