@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let usersList = ["Sam", "Justin", "Luke", "JH", "Aidan"]
+//let usersList = ["Sam", "Justin", "Luke", "JH", "Aidan"]
 
 struct ProfileView: View {
     
@@ -31,7 +31,7 @@ struct ProfileView: View {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: FollowerView(users: [], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
+                        destination: FollowerView(users: ["Justin", "Luke", "JH", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
                         //destination: FollowerView(username: "sam")) {
 //                        destination: FollowerView(followers_selected: true, following_selected: false)) {
                         VStack {
@@ -47,7 +47,7 @@ struct ProfileView: View {
                     NavigationLink(
                         //destination: FollowerView())
 //                        destination: FollowerView(username: "sam")) {
-                        destination: FollowerView(users: [], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
+                        destination: FollowerView(users:["Justin", "Luke", "JH", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
 //                        destination: FollowerView(followers_selected: false, following_selected: true)) {
                         VStack {
                             Text(String(following))

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FollowerView: View {
     
-    @State var users: [String] = ["Sam", "Justin", "Luke", "JH", "Aidan"]
+    @State var users: [String] = []
     @State var username: String = "sam_winiarski"
     @State var followers: Int = 69
     @State var following: Int = 420
