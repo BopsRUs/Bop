@@ -50,7 +50,6 @@ struct LineView: View {
 
                 }
                 .frame(width: geometry.frame(in: .local).size.width, height: 200)
-        
             }
         }
     }
