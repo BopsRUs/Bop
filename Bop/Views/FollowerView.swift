@@ -5,25 +5,24 @@
 //  Created by Sam Winiarski on 3/7/21.
 //
 
+/*
+ view is mostly finished for now
+ still need to hook up to database
+ */
+
 import SwiftUI
 
 struct FollowerView: View {
     
     @State var users: [String] = []
-    @State var username: String = "sam_winiarski"
-    @State var followers: Int = 69
-    @State var following: Int = 420
+    @State var username: String = ""
+    @State var followers: Int = 0
+    @State var following: Int = 0
     @State var followers_selected: Bool = true
     @State var following_selected: Bool = false
     
-//    @State var users: [String]
-//    @State var username: String
-//    @State var followers: Int
-//    @State var following: Int
-//    @State var followers_selected: Bool
-//    @State var following_selected: Bool
-    
     var body: some View {
+        
         VStack {
             
             HStack {
@@ -32,38 +31,90 @@ struct FollowerView: View {
                     Button("\(followers) Followers") {
                         followers_selected = true
                         following_selected = false
+                        users = getFollowers()
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding()
+                    .foregroundColor(followers_selected ? .blue : .black)
+                    .padding(.top)
                     .frame(maxWidth: .infinity)
-                    .background(followers_selected ? Color.blue : Color.white)
+                    
+                    if followers_selected {
+                        Divider()
+                            .frame(height: 1)
+                            .background(Color.blue)
+                    }
+                    else {
+                        Divider()
+                            .hidden()
+                    }
                 }
-                //Spacer()
+                
                 VStack {
                     Button("\(following) Following") {
-                        following_selected = true
                         followers_selected = false
+                        following_selected = true
+                        users = getFollowing()
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding()
+                    .foregroundColor(following_selected ? .blue : .black)
+                    .padding(.top)
                     .frame(maxWidth: .infinity)
-                    .background(following_selected ? Color.blue : Color.white)
+                    
+                    if following_selected {
+                        Divider()
+                            .frame(height: 1)
+                            .background(Color.blue)
+                    }
+                    else {
+                        Divider()
+                            .hidden()
+                    }
                 }
                 Spacer()
             }
             
             List(users, id: \.self) { follower in
-                Text(follower)
+                ZStack {
+                    NavigationLink(destination: ProfileView()) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    HStack {
+                        Text(follower)
+                        Spacer()
+                    }
+                }
             }
             .navigationTitle(username)
             .navigationBarTitleDisplayMode(.inline)
         }
+        //displays correct user list based on if followers or following was clicked to get to this view
+        .onAppear() {
+            if followers_selected {
+                users = getFollowers()
+            }
+            else if following_selected {
+                users = getFollowing()
+            }
+        }
+        
     }
+}
+
+//function to get list of followers for logged in user
+//need to rewrite to access database for this information once it's setup
+func getFollowers() -> [String] {
+    return ["Luke", "Justin"]
+}
+
+//function to get list of following for logged in user
+//need to rewrite to access database for this information once it's setup
+func getFollowing() -> [String] {
+    return ["John Harry", "Aidan"]
 }
 
 struct FollowerView_Previews: PreviewProvider {
     static var previews: some View {
         FollowerView()
-//        FollowerView(users: [String], username: String, followers: Int, following: Int, followers_selected: Bool, following_selected: Bool)
     }
 }

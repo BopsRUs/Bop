@@ -14,6 +14,7 @@ struct ProfileView: View {
     @State var username: String = "sam_winiarski"
     @State var followers: Int = 420
     @State var following: Int = 69
+    @State var transactions: [String] = ["Bought 12 shares of Drake", "Sold 25 shares of Eminem"]
 
     var body: some View {
         
@@ -26,12 +27,16 @@ struct ProfileView: View {
                     .frame(width: 100, height: 100)
                     .padding(.top)
                 
-                //followers/following stack
+                Text(username)
+                    .font(.system(size: 26))
+                    .padding(.bottom)
+                
+                //followers and following stack
                 HStack {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: FollowerView(users: ["Justin", "Luke", "JH", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
+                        destination: FollowerView(users: ["Justin", "Luke", "John Harry", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
                         //destination: FollowerView(username: "sam")) {
 //                        destination: FollowerView(followers_selected: true, following_selected: false)) {
                         VStack {
@@ -42,12 +47,14 @@ struct ProfileView: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
+                    
                     Spacer()
+                    
                     //following
                     NavigationLink(
                         //destination: FollowerView())
 //                        destination: FollowerView(username: "sam")) {
-                        destination: FollowerView(users:["Justin", "Luke", "JH", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
+                        destination: FollowerView(users:["Justin", "Luke", "John Harry", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
 //                        destination: FollowerView(followers_selected: false, following_selected: true)) {
                         VStack {
                             Text(String(following))
@@ -60,8 +67,14 @@ struct ProfileView: View {
                     Spacer()
                 }
                 .padding(.top)
-                
-                Spacer()
+                .padding(.bottom, 25)
+                                
+                Section(header: Text("Recent Activity"), content: {
+                    List(transactions, id: \.self) { transaction in
+                        Text(transaction)
+                    }
+                    .listStyle(PlainListStyle())
+                })
                 
             }
             .navigationBarTitle("Profile")
