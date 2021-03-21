@@ -20,6 +20,7 @@
 		BD9E92C525EED85E00FEB819 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E92C425EED85E00FEB819 /* AuthService.swift */; };
 		BD9E92D525EEDD3F00FEB819 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9E92D425EEDD3F00FEB819 /* LogInView.swift */; };
 		C6E82815018748E1849EF763 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82613056678D4AC49526B3D8 /* AmplifyModels.swift */; };
+		CE11494426063215009CCD6F /* EditUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11494326063215009CCD6F /* EditUsernameView.swift */; };
 		CE4AF31625F540CF0053FBDD /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4AF31525F540CF0053FBDD /* FollowerView.swift */; };
 		DD0CD9F525DDA46300E59C08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CD9F425DDA46300E59C08 /* MainView.swift */; };
 		DD0CD9FA25DDA6E200E59C08 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CD9F925DDA6E200E59C08 /* ProfileView.swift */; };
@@ -78,6 +79,7 @@
 		BD7B0F0125EC3C7A00C5B85C /* schema.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/bopmain/schema.graphql; sourceTree = SOURCE_ROOT; };
 		BD9E92C425EED85E00FEB819 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BD9E92D425EEDD3F00FEB819 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		CE11494326063215009CCD6F /* EditUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsernameView.swift; sourceTree = "<group>"; };
 		CE4AF31525F540CF0053FBDD /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 		D2321EBF3BBF070C4D5EE593 /* Pods_BopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D486B66742DE435080472C5D /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				DD0CDA0D25E04E5A00E59C08 /* SettingsView.swift */,
 				BD9E92D425EEDD3F00FEB819 /* LogInView.swift */,
 				CE4AF31525F540CF0053FBDD /* FollowerView.swift */,
+				CE11494326063215009CCD6F /* EditUsernameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				DD0CDA0925DDB3FD00E59C08 /* SearchBar.swift in Sources */,
 				DD0CDA2F25E3469000E59C08 /* Codables.swift in Sources */,
 				DD0CDA0E25E04E5A00E59C08 /* SettingsView.swift in Sources */,
+				CE11494426063215009CCD6F /* EditUsernameView.swift in Sources */,
 				DD0CDA2A25E344A000E59C08 /* Reader.swift in Sources */,
 				DD0CD9FF25DDA95C00E59C08 /* SearchView.swift in Sources */,
 				DD0CDA3725E43A0500E59C08 /* LineView.swift in Sources */,

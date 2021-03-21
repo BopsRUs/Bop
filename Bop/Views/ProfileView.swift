@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
-
-//let usersList = ["Sam", "Justin", "Luke", "JH", "Aidan"]
+import Amplify
 
 struct ProfileView: View {
     
-    @State var username: String = "sam_winiarski"
+    @State var username: String = ""
     @State var followers: Int = 420
     @State var following: Int = 69
-    @State var transactions: [String] = ["Bought 12 shares of Drake", "Sold 25 shares of Eminem"]
+    @State var transactions: [String] = ["Bought 12 shares of Drake", "Sold 25 shares of The Weeknd"]
+    
+    init() {
+        if let user = Amplify.Auth.getCurrentUser() {
+            _username = State(initialValue: user.username)
+        }
+    }
 
     var body: some View {
         
@@ -36,9 +41,7 @@ struct ProfileView: View {
                     Spacer()
                     //followers
                     NavigationLink(
-                        destination: FollowerView(users: ["Justin", "Luke", "John Harry", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: true, following_selected: false)) {
-                        //destination: FollowerView(username: "sam")) {
-//                        destination: FollowerView(followers_selected: true, following_selected: false)) {
+                        destination: FollowerView(username: username, followers: followers, following: following, followers_selected: true, following_selected: false)) {
                         VStack {
                             Text(String(followers))
                                 .font(.system(size: 22))
@@ -52,10 +55,7 @@ struct ProfileView: View {
                     
                     //following
                     NavigationLink(
-                        //destination: FollowerView())
-//                        destination: FollowerView(username: "sam")) {
-                        destination: FollowerView(users:["Justin", "Luke", "John Harry", "Aidan"], username: "sam_winiarski", followers: followers, following: following, followers_selected: false, following_selected: true)) {
-//                        destination: FollowerView(followers_selected: false, following_selected: true)) {
+                        destination: FollowerView(username: username, followers: followers, following: following, followers_selected: false, following_selected: true)) {
                         VStack {
                             Text(String(following))
                                 .font(.system(size: 22))
