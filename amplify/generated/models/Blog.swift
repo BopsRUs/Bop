@@ -2,16 +2,16 @@
 import Amplify
 import Foundation
 
-public struct User: Model {
+public struct Blog: Model {
   public let id: String
   public var name: String
-  public var privacy: String
+  public var posts: List<Post>?
   
   public init(id: String = UUID().uuidString,
       name: String,
-      privacy: String) {
+      posts: List<Post>? = []) {
       self.id = id
       self.name = name
-      self.privacy = privacy
+      self.posts = posts
   }
 }

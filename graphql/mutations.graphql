@@ -1,69 +1,324 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateStocks(
-  $input: CreateStocksInput!
-  $condition: ModelStocksConditionInput
+mutation CreateBlog(
+  $input: CreateBlogInput!
+  $condition: ModelBlogConditionInput
 ) {
-  createStocks(input: $input, condition: $condition) {
+  createBlog(input: $input, condition: $condition) {
     id
     name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
+    posts {
+      items {
+        id
+        title
+        blogID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
+      startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-mutation UpdateStocks(
-  $input: UpdateStocksInput!
-  $condition: ModelStocksConditionInput
+mutation UpdateBlog(
+  $input: UpdateBlogInput!
+  $condition: ModelBlogConditionInput
 ) {
-  updateStocks(input: $input, condition: $condition) {
+  updateBlog(input: $input, condition: $condition) {
     id
     name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
+    posts {
+      items {
+        id
+        title
+        blogID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
+      startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-mutation DeleteStocks(
-  $input: DeleteStocksInput!
-  $condition: ModelStocksConditionInput
+mutation DeleteBlog(
+  $input: DeleteBlogInput!
+  $condition: ModelBlogConditionInput
 ) {
-  deleteStocks(input: $input, condition: $condition) {
+  deleteBlog(input: $input, condition: $condition) {
     id
     name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
+    posts {
+      items {
+        id
+        title
+        blogID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
       }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreatePost(
+  $input: CreatePostInput!
+  $condition: ModelPostConditionInput
+) {
+  createPost(input: $input, condition: $condition) {
+    id
+    title
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
+    comments {
+      items {
+        id
+        postID
+        content
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdatePost(
+  $input: UpdatePostInput!
+  $condition: ModelPostConditionInput
+) {
+  updatePost(input: $input, condition: $condition) {
+    id
+    title
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    comments {
+      items {
+        id
+        postID
+        content
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeletePost(
+  $input: DeletePostInput!
+  $condition: ModelPostConditionInput
+) {
+  deletePost(input: $input, condition: $condition) {
+    id
+    title
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    comments {
+      items {
+        id
+        postID
+        content
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateComment(
+  $input: CreateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  createComment(input: $input, condition: $condition) {
+    id
+    postID
+    post {
+      id
+      title
+      blogID
+      blog {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      comments {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    content
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateComment(
+  $input: UpdateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  updateComment(input: $input, condition: $condition) {
+    id
+    postID
+    post {
+      id
+      title
+      blogID
+      blog {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      comments {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    content
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteComment(
+  $input: DeleteCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  deleteComment(input: $input, condition: $condition) {
+    id
+    postID
+    post {
+      id
+      title
+      blogID
+      blog {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      comments {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    content
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -74,19 +329,11 @@ mutation CreateUser(
 ) {
   createUser(input: $input, condition: $condition) {
     id
-    username
-    email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    name
+    privacy
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -97,19 +344,11 @@ mutation UpdateUser(
 ) {
   updateUser(input: $input, condition: $condition) {
     id
-    username
-    email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    name
+    privacy
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -120,19 +359,59 @@ mutation DeleteUser(
 ) {
   deleteUser(input: $input, condition: $condition) {
     id
-    username
-    email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    name
+    privacy
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateStocks(
+  $input: CreateStocksInput!
+  $condition: ModelStocksConditionInput
+) {
+  createStocks(input: $input, condition: $condition) {
+    id
+    title
+    quantity
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateStocks(
+  $input: UpdateStocksInput!
+  $condition: ModelStocksConditionInput
+) {
+  updateStocks(input: $input, condition: $condition) {
+    id
+    title
+    quantity
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteStocks(
+  $input: DeleteStocksInput!
+  $condition: ModelStocksConditionInput
+) {
+  deleteStocks(input: $input, condition: $condition) {
+    id
+    title
+    quantity
+    userID
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

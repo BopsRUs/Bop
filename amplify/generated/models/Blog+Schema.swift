@@ -2,26 +2,26 @@
 import Amplify
 import Foundation
 
-extension User {
+extension Blog {
   // MARK: - CodingKeys 
    public enum CodingKeys: String, ModelKey {
     case id
     case name
-    case privacy
+    case posts
   }
   
   public static let keys = CodingKeys.self
   //  MARK: - ModelSchema 
   
   public static let schema = defineSchema { model in
-    let user = User.keys
+    let blog = Blog.keys
     
-    model.pluralName = "Users"
+    model.pluralName = "Blogs"
     
     model.fields(
       .id(),
-      .field(user.name, is: .required, ofType: .string),
-      .field(user.privacy, is: .required, ofType: .string)
+      .field(blog.name, is: .required, ofType: .string),
+      .hasMany(blog.posts, is: .optional, ofType: Post.self, associatedWith: Post.keys.blog)
     )
     }
 }

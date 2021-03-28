@@ -2,19 +2,19 @@
 import Amplify
 import Foundation
 
-public struct Stocks: Model {
+public struct Post: Model {
   public let id: String
   public var title: String
-  public var quantity: String
-  public var userID: String
+  public var blog: Blog?
+  public var comments: List<Comment>?
   
   public init(id: String = UUID().uuidString,
       title: String,
-      quantity: String,
-      userID: String) {
+      blog: Blog? = nil,
+      comments: List<Comment>? = []) {
       self.id = id
       self.title = title
-      self.quantity = quantity
-      self.userID = userID
+      self.blog = blog
+      self.comments = comments
   }
 }
