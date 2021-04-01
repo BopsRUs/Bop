@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
-
+var posts = [""]
 struct SocialView: View {
     var body: some View {
-        Text("Social")
+        NavigationView{
+            ScrollView{
+                LazyVStack{
+                    //loop generates the feed that shows a person's portfolio
+                    ForEach(posts, id: \.self){ value in
+                        let post = Post(name: "Obama")
+                        PostView(post: post)
+                    }
+                }
+                .navigationBarTitle("Social")
+            }
+        }
     }
 }
 

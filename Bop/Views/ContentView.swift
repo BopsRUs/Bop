@@ -11,25 +11,25 @@ import AmplifyPlugins
 
 let names = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
 let totalPortfolioValue = "10,233.20"
+let data = [8.1,23,54,32,12,37,7,23,43,60,26,45,31,19,35,22,48]
 struct ContentView: View {
     var body: some View {
         NavigationView{
             ScrollView{
                 //Makes the large line graph at the top
-                LineView(data: [8,23,54,32,12,37,7,23,43])
-                    .padding(.bottom, 120)
-                    .padding(.top, 40)
+                LineView(data: data, lineWidth: 4)
+                    .frame(height: 200)
                     .navigationBarTitle("Portfolio \n $\(totalPortfolioValue)", displayMode: .large)
                 Text("Overall: $\(totalPortfolioValue)")//.onAppear{self.performOnAppear()
                 LazyVStack{
                     //loop generates the feed that shows a person's portfolio
                     ForEach(names, id: \.self){ value in
-                        let rand = Float.random(in: -100...100)
+                        let data = dummyDoubleArray(size: 15)
                         let numShares = Int.random(in: 1...100)
                         Divider()
-                        let smallStock = SmallStock(name: value, numShares: Float(numShares), delta: rand)
+                        let smallStock = SmallStock(name: value, numShares: Float(numShares), data: data)
                         //view that handles the smaller individual stocks views
-                        NavigationLink(destination: StockView(stock: Stock(name: "\(smallStock.name)", delta: smallStock.delta))){
+                        NavigationLink(destination: StockView(stock: StockData(name: "\(smallStock.name)", delta: smallStock.delta))){
                             SmallStockView(smallStock: smallStock)
                                 //this sets all text color to black in the view
                                 .foregroundColor(.black)
