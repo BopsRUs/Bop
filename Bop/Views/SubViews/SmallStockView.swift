@@ -11,12 +11,14 @@ import SwiftUI
 class SmallStock{
     var name: String = ""
     var numShares: Float = 0.0
-    var delta: Float = 0.0
+    var delta: Double = 0.0
+    var data: [(Double)]
     
-    init(name: String, numShares: Float, delta: Float){
+    init(name: String, numShares: Float, data: [(Double)]){
         self.name = name
         self.numShares = numShares
-        self.delta = delta
+        self.data = data
+        self.delta = getDifference(data: data)
     }
 }
 
@@ -33,6 +35,9 @@ struct SmallStockView: View {
                     .fontWeight(.light)
                     .font(.system(size: 15))
             }
+            Spacer()
+            LineView(data: smallStock.data, lineWidth: 1)
+                .padding(.horizontal, 30)
             Spacer()
             //logic handles color for stock change box
             if(smallStock.delta >= 0){
@@ -58,6 +63,6 @@ struct SmallStockView: View {
 
 struct SmallStockView_Previews: PreviewProvider {
     static var previews: some View {
-        SmallStockView(smallStock: SmallStock(name: "Obama", numShares: 44, delta: 2012))
+        SmallStockView(smallStock: SmallStock(name: "Obama", numShares: 44, data: [40.1,50,33,29,83,67,43]))
     }
 }
