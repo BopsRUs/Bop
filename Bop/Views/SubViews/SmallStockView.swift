@@ -10,15 +10,17 @@ import SwiftUI
 //class for the smallStock object
 class SmallStock{
     var name: String = ""
-    var numShares: Float = 0.0
+    var numShares: Double = 0.0
     var delta: Double = 0.0
     var data: [(Double)]
+    var currPrice: Double
     
-    init(name: String, numShares: Float, data: [(Double)]){
+    init(name: String, numShares: Double, data: [(Double)]){
         self.name = name
         self.numShares = numShares
         self.data = data
         self.delta = getDifference(data: data)
+        self.currPrice = data.last ?? 0.0
     }
 }
 
@@ -26,6 +28,7 @@ class SmallStock{
 //artist name, price change (delta), shares owned
 struct SmallStockView: View {
     var smallStock: SmallStock
+    var deltaBoxWidth = CGFloat(70)
     var body: some View {
         HStack{
             //Left elements
@@ -39,18 +42,20 @@ struct SmallStockView: View {
             LineView(data: smallStock.data, lineWidth: 1)
                 .padding(.horizontal, 30)
             Spacer()
+            //share price
+            Text("\(smallStock.currPrice, specifier: "%.2f")")
             //logic handles color for stock change box
             if(smallStock.delta >= 0){
                 Text("+\(smallStock.delta,specifier: "%.2f")")
                     .padding(.trailing, 6.0)
-                    .frame(width: 90, height: 30, alignment: .trailing)
+                    .frame(width: deltaBoxWidth, height: 30, alignment: .trailing)
                     .background(RoundedRectangle(cornerRadius: 4)
                                     .fill(Color.green))
             }
             else{
                 Text("\(smallStock.delta,specifier: "%.2f")")
                     .padding(.trailing, 6.0)
-                    .frame(width: 90, height: 30, alignment: .trailing)
+                    .frame(width: deltaBoxWidth, height: 30, alignment: .trailing)
                     .background(RoundedRectangle(cornerRadius: 4)
                                     .fill(Color.red))
             }

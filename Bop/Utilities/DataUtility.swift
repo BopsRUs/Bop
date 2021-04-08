@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import GameplayKit
 func dummyDoubleArray(size: Int) -> [(Double)] {
-    let arr = (0..<size).map{_ in Double.random(in: 1 ... 100)}
+    let random = GKRandomSource()
+    let randMean = Float.random(in: 0...100)
+    let randPrice = GKGaussianDistribution(randomSource: random, mean: randMean, deviation: 10)
+    var arr: [Double] = []
+    for _ in 1...size{
+        let num = abs(Double(randPrice.nextInt()))
+        let dec = Double(randPrice.nextInt())/100
+        arr.append(num + dec)
+    }
     return arr
 }
 
