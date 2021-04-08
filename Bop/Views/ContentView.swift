@@ -11,7 +11,7 @@ import AmplifyPlugins
 
 let names = ["Drake","Lady Gaga","Smino","The Who","Dolly Parton","Future","Taylor Swift","Clairo","Amine", "Pop Smoke", "The Beatles", "Mac Miller", "The Strokes", "Steely Dan", "Whitney", "Beach House", "The Pogues", "Doja Cat", "David Bowie", "Modest Mouse"]
 let totalPortfolioValue = "10,233.20"
-let data = [8.1,23,54,32,12,37,7,23,43,60,26,45,31,19,35,22,48]
+let data = dummyDoubleArray(size: 50)
 struct ContentView: View {
     var body: some View {
         NavigationView{
@@ -27,9 +27,9 @@ struct ContentView: View {
                         let data = dummyDoubleArray(size: 15)
                         let numShares = Int.random(in: 1...100)
                         Divider()
-                        let smallStock = SmallStock(name: value, numShares: Float(numShares), data: data)
+                        let smallStock = SmallStock(name: value, numShares: Double(numShares), data: data)
                         //view that handles the smaller individual stocks views
-                        NavigationLink(destination: StockView(stock: StockData(name: "\(smallStock.name)", delta: smallStock.delta))){
+                        NavigationLink(destination: StockView(stock: StockData(name: "\(smallStock.name)", delta: smallStock.delta, shares: smallStock.numShares))){
                             SmallStockView(smallStock: smallStock)
                                 //this sets all text color to black in the view
                                 .foregroundColor(.black)

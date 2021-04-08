@@ -30,6 +30,7 @@
 		DD0CDA2A25E344A000E59C08 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CDA2925E344A000E59C08 /* Reader.swift */; };
 		DD0CDA2F25E3469000E59C08 /* Codables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CDA2E25E3469000E59C08 /* Codables.swift */; };
 		DD0CDA3725E43A0500E59C08 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CDA3625E43A0500E59C08 /* LineView.swift */; };
+		DD0F81B9261E715600E39D0F /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F81B8261E715600E39D0F /* TradeView.swift */; };
 		DD8E253C25BF9ADA00CB271C /* BopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E253B25BF9ADA00CB271C /* BopApp.swift */; };
 		DD8E253E25BF9ADA00CB271C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E253D25BF9ADA00CB271C /* ContentView.swift */; };
 		DD8E254025BF9ADC00CB271C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8E253F25BF9ADC00CB271C /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		DD0CDA2925E344A000E59C08 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		DD0CDA2E25E3469000E59C08 /* Codables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codables.swift; sourceTree = "<group>"; };
 		DD0CDA3625E43A0500E59C08 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		DD0F81B8261E715600E39D0F /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 		DD8E253825BF9ADA00CB271C /* Bop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8E253B25BF9ADA00CB271C /* BopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BopApp.swift; sourceTree = "<group>"; };
 		DD8E253D25BF9ADA00CB271C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				DD0CDA0D25E04E5A00E59C08 /* SettingsView.swift */,
 				BD9E92D425EEDD3F00FEB819 /* LogInView.swift */,
 				CE4AF31525F540CF0053FBDD /* FollowerView.swift */,
+				DD0F81B8261E715600E39D0F /* TradeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				DD0CDA3725E43A0500E59C08 /* LineView.swift in Sources */,
 				CE4AF31625F540CF0053FBDD /* FollowerView.swift in Sources */,
 				BD7B0EE325EC1B3100C5B85C /* API.swift in Sources */,
+				DD0F81B9261E715600E39D0F /* TradeView.swift in Sources */,
 				BD9E92C525EED85E00FEB819 /* AuthService.swift in Sources */,
 				DD0CD9FA25DDA6E200E59C08 /* ProfileView.swift in Sources */,
 				DDE5007D26153C2E006B25F8 /* PostView.swift in Sources */,

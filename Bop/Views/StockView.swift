@@ -17,8 +17,9 @@ class StockData{
     var sixMonthData: [(Double)]
     var yearData: [(Double)]
     var maxData: [(Double)]
+    var shares: Double
     
-    init(name: String, delta: Double){
+    init(name: String, delta: Double, shares: Double){
         self.name = name
         self.dayData = dummyDoubleArray(size: 30)
         self.weekData = dummyDoubleArray(size: 30)
@@ -27,6 +28,7 @@ class StockData{
         self.yearData = dummyDoubleArray(size: 30)
         self.maxData = dummyDoubleArray(size: 30)
         self.delta = getDifference(data: self.dayData)
+        self.shares = shares
     }
     func getMaxOfDay() -> Double{
         return dayData.max() ?? 0.0
@@ -40,57 +42,67 @@ class StockData{
     func getMinOfYear() -> Double{
         return yearData.min() ?? 0.0
     }
+    func getCurrPrice() -> Double{
+        return dayData.last ?? 0.0
+    }
 }
 struct StockView: View {
     var stock : StockData
     var body: some View {
-        NavigationView{ 
-            VStack{
-                LineView(data: stock.dayData, lineWidth: 4)
-                    .frame(height: 200)
-                Divider()
-                HStack{
-                    Image("obama")
-                        .resizable()
-                        .frame(width: 65, height: 65)
-                        .clipShape(Circle())
-                        .padding()
-                        .navigationBarTitle(stock.name)
-                    if(stock.delta >= 0){
-                        Text("+\(stock.delta,specifier: "%.2f")")
-                            .frame(width: 90, height: 50, alignment: .center)
-                            .background(RoundedRectangle(cornerRadius: 4)
-                                            .fill(Color.green))
-                    }
-                    else{
-                        Text("\(stock.delta,specifier: "%.2f")")
-                            .frame(width: 90, height: 50, alignment: .center)
-                            .background(RoundedRectangle(cornerRadius: 4)
-                                            .fill(Color.red))
-                    }
-                    Spacer()
+        VStack{
+            LineView(data: stock.dayData, lineWidth: 4)
+                .frame(height: 200)
+            Divider()
+            HStack{
+                Image("ross")
+                    .resizable()
+                    .frame(width: 65, height: 65)
+                    .clipShape(Circle())
+                    .padding()
+                    .navigationBarTitle(stock.name)
+                    .navigationBarItems(trailing: NavigationLink(destination:TradeView(tradeObject: TradeObject(stockName: stock.name, sharesOwned: stock.shares, currPrice: stock.delta))){
+                            Text("Trade")
+                        })
+                Text("\(stock.getCurrPrice(), specifier: "%.2f")")
+                    .padding()
+                //logic for gain/loss color
+                if(stock.delta >= 0){
+                    Text("+\(stock.delta,specifier: "%.2f")")
+                        .frame(width: 90, height: 50, alignment: .center)
+                        .background(RoundedRectangle(cornerRadius: 4)
+                                        .fill(Color.green))
                 }
-                Divider()
-                HStack{
-                    Text("Daily High: \(stock.getMaxOfDay(), specifier: "%.2f")")
-                        .fontWeight(.light)
-                    Text("Daily Low: \(stock.getMaxOfDay(), specifier: "%.2f")")
-                        .fontWeight(.light)
-                }
-                HStack{
-                    Text("52 Week High: \(stock.getMaxOfYear(), specifier: "%.2f")")
-                        .fontWeight(.light)
-                    Text("52 Week Low: \(stock.getMaxOfYear(), specifier: "%.2f")")
-                        .fontWeight(.light)
+                else{
+                    Text("\(stock.delta,specifier: "%.2f")")
+                        .frame(width: 90, height: 50, alignment: .center)
+                        .background(RoundedRectangle(cornerRadius: 4)
+                                        .fill(Color.red))
                 }
                 Spacer()
             }
+            Divider()
+            Text("Current Price: \(stock.getCurrPrice(), specifier: "%.2f")")
+            Divider()
+            HStack{
+                Text("Daily High: \(stock.getMaxOfDay(), specifier: "%.2f")")
+                    .fontWeight(.light)
+                Text("Daily Low: \(stock.getMinOfDay(), specifier: "%.2f")")
+                    .fontWeight(.light)
+            }
+            Divider()
+            HStack{
+                Text("52 Week High: \(stock.getMaxOfYear(), specifier: "%.2f")")
+                    .fontWeight(.light)
+                Text("52 Week Low: \(stock.getMinOfYear(), specifier: "%.2f")")
+                    .fontWeight(.light)
+            }
+            Spacer()
         }
     }
 }
 
 struct StockView_Previews: PreviewProvider {
     static var previews: some View {
-        StockView(stock: StockData(name: "Hugh G. Sachs", delta: 420.69))
+        StockView(stock: StockData(name: "Hugh G. Sachs", delta: 420.68, shares: 68.9))
     }
 }
