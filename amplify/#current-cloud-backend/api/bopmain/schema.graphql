@@ -1,0 +1,46 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+type Post @model  {
+  id: ID!
+  title: String!
+  userID: ID!
+  content: String!
+  likes: Float!
+}
+
+type Comment @model {
+  id: ID!
+  postID: ID!
+  content: String!
+  username: String!
+  userID: ID!
+}
+
+type User @model  {
+  id: ID!
+  name: String!
+  privacy: String!
+  followers: [String]
+  following: [String]
+  blocked: [String]
+  muted: [String]
+  email: String!
+  
+}
+
+type Stocks @model @key(name: "byUser", fields: ["userID"]) {
+  id: ID!
+  title: String!
+  quantity: String!
+  userID: ID!
+  artistID: ID!
+}
+
+type Artist @model {
+    id: ID!
+    value: Float!
+    name: String!
+}
