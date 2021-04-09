@@ -1,28 +1,34 @@
-type Blog @model {
+type Todo @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  description: String
 }
-
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type Post @model  {
   id: ID!
   title: String!
-  blogID: ID!
-  blog: Blog @connection(fields: ["blogID"])
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  userID: ID!
+  content: String!
+  likes: Float!
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Comment @model {
   id: ID!
   postID: ID!
-  post: Post @connection(fields: ["postID"])
   content: String!
+  username: String!
+  userID: ID!
 }
 
-type User @model {
+type User @model  {
   id: ID!
   name: String!
   privacy: String!
+  followers: [String]
+  following: [String]
+  blocked: [String]
+  muted: [String]
+  email: String!
+  
 }
 
 type Stocks @model @key(name: "byUser", fields: ["userID"]) {
@@ -30,4 +36,11 @@ type Stocks @model @key(name: "byUser", fields: ["userID"]) {
   title: String!
   quantity: String!
   userID: ID!
+  artistID: ID!
+}
+
+type Artist @model {
+    id: ID!
+    value: Float!
+    name: String!
 }

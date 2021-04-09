@@ -9,6 +9,7 @@ extension Stocks {
     case title
     case quantity
     case userID
+    case artistID
   }
   
   public static let keys = CodingKeys.self
@@ -23,7 +24,8 @@ extension Stocks {
       .id(),
       .field(stocks.title, is: .required, ofType: .string),
       .field(stocks.quantity, is: .required, ofType: .string),
-      .field(stocks.userID, is: .required, ofType: .string)
+      .field(stocks.userID, is: .required, ofType: .string),
+      .field(stocks.artistID, is: .required, ofType: .string)
     )
     }
 }

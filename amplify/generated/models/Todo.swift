@@ -2,16 +2,16 @@
 import Amplify
 import Foundation
 
-public struct Blog: Model {
+public struct Todo: Model {
   public let id: String
   public var name: String
-  public var posts: List<Post>?
+  public var description: String?
   
   public init(id: String = UUID().uuidString,
       name: String,
-      posts: List<Post>? = []) {
+      description: String? = nil) {
       self.id = id
       self.name = name
-      self.posts = posts
+      self.description = description
   }
 }

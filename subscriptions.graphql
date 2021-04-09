@@ -1,0 +1,250 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateTodo {
+  onCreateTodo {
+    id
+    name
+    description
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    id
+    name
+    description
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    id
+    name
+    description
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreatePost {
+  onCreatePost {
+    id
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    id
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateComment {
+  onCreateComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
+    email
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
+    email
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
+    email
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateStocks {
+  onCreateStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateStocks {
+  onUpdateStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteStocks {
+  onDeleteStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}

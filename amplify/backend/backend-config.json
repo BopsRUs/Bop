@@ -6,9 +6,10 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authbopmainf10a6c03"
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "description": "bop"
             }
           },
           "additionalAuthenticationProviders": []
@@ -19,6 +20,10 @@
   "storage": {
     "UserTable": {
       "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    },
+    "artistProPics": {
+      "service": "S3",
       "providerPlugin": "awscloudformation"
     }
   },

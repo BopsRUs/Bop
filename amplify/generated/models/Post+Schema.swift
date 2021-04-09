@@ -7,8 +7,9 @@ extension Post {
    public enum CodingKeys: String, ModelKey {
     case id
     case title
-    case blog
-    case comments
+    case userID
+    case content
+    case likes
   }
   
   public static let keys = CodingKeys.self
@@ -22,8 +23,9 @@ extension Post {
     model.fields(
       .id(),
       .field(post.title, is: .required, ofType: .string),
-      .belongsTo(post.blog, is: .optional, ofType: Blog.self, targetName: "blogID"),
-      .hasMany(post.comments, is: .optional, ofType: Comment.self, associatedWith: Comment.keys.post)
+      .field(post.userID, is: .required, ofType: .string),
+      .field(post.content, is: .required, ofType: .string),
+      .field(post.likes, is: .required, ofType: .double)
     )
     }
 }

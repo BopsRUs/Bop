@@ -16,7 +16,7 @@ struct ContentView: View {
             //Makes the large line graph at the top
             LineView(data: [8,23,54,32,12,37,7,23,43],title:"Portfolio")
                 .padding(.bottom, 200)
-            Text("Overall: $10,301.21").onAppear{self.performOnAppear()
+            Text("Overall: $10,301.21").onAppear{
             ScrollView{
                 LazyVStack{
                     //loop generates the feed that shows a person's portfolio
@@ -42,15 +42,7 @@ struct ContentView: View {
     }
 
     }
-    func performOnAppear() {
-        //let s = Stocks( name: "Boyz II Men", userID: "696969", quantity: "1")
-        //var item = User( userID: "696969", username: "superuser",
-                         //email: "test@gmail.com",  portfolio: [s])
-        
-        //item.portfolio = [s]
-        print("AAAA")
 
-    }
 
 
 

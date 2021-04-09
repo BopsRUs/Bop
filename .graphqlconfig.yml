@@ -2,14 +2,14 @@ projects:
   bopmain:
     schemaPath: graphql/schema.json
     includes:
-      - graphql/**/*.graphql
+      - 'Y'
     excludes:
       - ./amplify/**
     extensions:
       amplify:
         codeGenTarget: swift
         generatedFileName: API.swift
-        docsFilePath: graphql
+        docsFilePath: .
 extensions:
   amplify:
     version: 3
