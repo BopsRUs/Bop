@@ -4,20 +4,20 @@ import Foundation
 
 public struct Stocks: Model {
   public let id: String
-  public var name: String
-  public var bopid: String
+  public var title: String
   public var quantity: String
-  public var user: User?
+  public var userID: String
+  public var artistID: String
   
   public init(id: String = UUID().uuidString,
-      name: String,
-      bopid: String,
+      title: String,
       quantity: String,
-      user: User? = nil) {
+      userID: String,
+      artistID: String) {
       self.id = id
-      self.name = name
-      self.bopid = bopid
+      self.title = title
       self.quantity = quantity
-      self.user = user
+      self.userID = userID
+      self.artistID = artistID
   }
 }

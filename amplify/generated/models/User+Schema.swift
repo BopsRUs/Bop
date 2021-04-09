@@ -6,9 +6,13 @@ extension User {
   // MARK: - CodingKeys 
    public enum CodingKeys: String, ModelKey {
     case id
-    case username
+    case name
+    case privacy
+    case followers
+    case following
+    case blocked
+    case muted
     case email
-    case portfolio
   }
   
   public static let keys = CodingKeys.self
@@ -21,9 +25,13 @@ extension User {
     
     model.fields(
       .id(),
-      .field(user.username, is: .required, ofType: .string),
-      .field(user.email, is: .optional, ofType: .string),
-      .hasMany(user.portfolio, is: .optional, ofType: Stocks.self, associatedWith: Stocks.keys.user)
+      .field(user.name, is: .required, ofType: .string),
+      .field(user.privacy, is: .required, ofType: .string),
+      .field(user.followers, is: .optional, ofType: .embeddedCollection(of: String.self)),
+      .field(user.following, is: .optional, ofType: .embeddedCollection(of: String.self)),
+      .field(user.blocked, is: .optional, ofType: .embeddedCollection(of: String.self)),
+      .field(user.muted, is: .optional, ofType: .embeddedCollection(of: String.self)),
+      .field(user.email, is: .required, ofType: .string)
     )
     }
 }

@@ -8,15 +8,11 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
+              "apiKeyExpirationDays": 365,
+              "description": "bop"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }
@@ -24,6 +20,10 @@
   "storage": {
     "UserTable": {
       "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    },
+    "artistProPics": {
+      "service": "S3",
       "providerPlugin": "awscloudformation"
     }
   },
