@@ -175,6 +175,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE3F3828261E805F002CB533 /* UserProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE11494326063215009CCD6F /* EditUsernameView.swift */,
+				CE4AF31525F540CF0053FBDD /* FollowerView.swift */,
+				DD0CD9F925DDA6E200E59C08 /* ProfileView.swift */,
+				DD0CDA0D25E04E5A00E59C08 /* SettingsView.swift */,
+			);
+			path = UserProfileViews;
+			sourceTree = "<group>";
+		};
 		D20910708C0FAF9729C9DDF6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,17 +202,14 @@
 		DD0CDA1F25E33B4900E59C08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE3F3828261E805F002CB533 /* UserProfileViews */,
 				DDF489FA25E9A3FD00EDCB6A /* SubViews */,
 				DD8E253D25BF9ADA00CB271C /* ContentView.swift */,
 				DDF48A0325E9C6FD00EDCB6A /* StockView.swift */,
 				DD0CD9FE25DDA95C00E59C08 /* SearchView.swift */,
 				DD0CD9F425DDA46300E59C08 /* MainView.swift */,
-				DD0CD9F925DDA6E200E59C08 /* ProfileView.swift */,
 				DD0CDA0325DDAA7C00E59C08 /* SocialView.swift */,
-				DD0CDA0D25E04E5A00E59C08 /* SettingsView.swift */,
 				BD9E92D425EEDD3F00FEB819 /* LogInView.swift */,
-				CE4AF31525F540CF0053FBDD /* FollowerView.swift */,
-				CE11494326063215009CCD6F /* EditUsernameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -17,6 +17,7 @@ struct SettingsView: View {
     init() {
         if let user = Amplify.Auth.getCurrentUser() {
             _username = State(initialValue: user.username)
+            //set email here
         }
     }
     
