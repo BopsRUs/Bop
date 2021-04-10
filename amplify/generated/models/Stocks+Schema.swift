@@ -6,10 +6,10 @@ extension Stocks {
   // MARK: - CodingKeys 
    public enum CodingKeys: String, ModelKey {
     case id
-    case name
-    case bopid
+    case title
     case quantity
-    case user
+    case userID
+    case artistID
   }
   
   public static let keys = CodingKeys.self
@@ -22,10 +22,10 @@ extension Stocks {
     
     model.fields(
       .id(),
-      .field(stocks.name, is: .required, ofType: .string),
-      .field(stocks.bopid, is: .required, ofType: .string),
+      .field(stocks.title, is: .required, ofType: .string),
       .field(stocks.quantity, is: .required, ofType: .string),
-      .belongsTo(stocks.user, is: .optional, ofType: User.self, targetName: "stocksUserId")
+      .field(stocks.userID, is: .required, ofType: .string),
+      .field(stocks.artistID, is: .required, ofType: .string)
     )
     }
 }

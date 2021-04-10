@@ -1,60 +1,84 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateStocks {
-  onCreateStocks {
+subscription OnCreatePost {
+  onCreatePost {
     id
-    name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-subscription OnUpdateStocks {
-  onUpdateStocks {
+subscription OnUpdatePost {
+  onUpdatePost {
     id
-    name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
 }
-subscription OnDeleteStocks {
-  onDeleteStocks {
+subscription OnDeletePost {
+  onDeletePost {
     id
-    name
-    bopid
-    quantity
-    user {
-      id
-      username
-      email
-      portfolio {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
+    title
+    userID
+    content
+    likes
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateComment {
+  onCreateComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    postID
+    content
+    username
+    userID
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -62,19 +86,16 @@ subscription OnDeleteStocks {
 subscription OnCreateUser {
   onCreateUser {
     id
-    username
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
     email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -82,19 +103,16 @@ subscription OnCreateUser {
 subscription OnUpdateUser {
   onUpdateUser {
     id
-    username
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
     email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -102,19 +120,94 @@ subscription OnUpdateUser {
 subscription OnDeleteUser {
   onDeleteUser {
     id
-    username
+    name
+    privacy
+    followers
+    following
+    blocked
+    muted
     email
-    portfolio {
-      items {
-        id
-        name
-        bopid
-        quantity
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateStocks {
+  onCreateStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateStocks {
+  onUpdateStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteStocks {
+  onDeleteStocks {
+    id
+    title
+    quantity
+    userID
+    artistID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    value
+    name
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }

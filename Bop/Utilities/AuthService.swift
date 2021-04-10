@@ -64,16 +64,30 @@ class AuthService: ObservableObject {
             }
         }
     }
-    func fetchAttributes() {
+    func fetchUserInfo() ->(email: String, username: String, id: String) {
+        var username = ""
+        var email = ""
+        var id = ""
+        let user = Amplify.Auth.getCurrentUser()
+        username = user?.username ?? "None"
+        id = user?.userId ?? "None"
         Amplify.Auth.fetchUserAttributes() { result in
             switch result {
             case .success(let attributes):
-                print("User attributes - \(attributes)")
+                for attr in attributes{
+                    if attr.key == AuthUserAttributeKey.email {
+                        email=attr.value
+                        print("EMAIL: ")
+                        print(result)
+                    }
+                }
             case .failure(let error):
                 print("Fetching user attributes failed with error \(error)")
             }
         }
+        return (email, username, id)
     }
+
     func signOut() {
         _ = Amplify.Auth.signOut { result in
             switch result {

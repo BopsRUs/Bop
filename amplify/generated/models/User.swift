@@ -4,17 +4,29 @@ import Foundation
 
 public struct User: Model {
   public let id: String
-  public var username: String
-  public var email: String?
-  public var portfolio: List<Stocks>?
+  public var name: String
+  public var privacy: String
+  public var followers: [String]?
+  public var following: [String]?
+  public var blocked: [String]?
+  public var muted: [String]?
+  public var email: String
   
   public init(id: String = UUID().uuidString,
-      username: String,
-      email: String? = nil,
-      portfolio: List<Stocks>? = []) {
+      name: String,
+      privacy: String,
+      followers: [String]? = [],
+      following: [String]? = [],
+      blocked: [String]? = [],
+      muted: [String]? = [],
+      email: String) {
       self.id = id
-      self.username = username
+      self.name = name
+      self.privacy = privacy
+      self.followers = followers
+      self.following = following
+      self.blocked = blocked
+      self.muted = muted
       self.email = email
-      self.portfolio = portfolio
   }
 }
