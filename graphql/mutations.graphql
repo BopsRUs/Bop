@@ -1,179 +1,23 @@
 # this is an auto generated file. This will be overwritten
-mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  createPost(input: $input, condition: $condition) {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  updatePost(input: $input, condition: $condition) {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
-) {
-  deletePost(input: $input, condition: $condition) {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateComment(
-  $input: CreateCommentInput!
-  $condition: ModelCommentConditionInput
-) {
-  createComment(input: $input, condition: $condition) {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateComment(
-  $input: UpdateCommentInput!
-  $condition: ModelCommentConditionInput
-) {
-  updateComment(input: $input, condition: $condition) {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteComment(
-  $input: DeleteCommentInput!
-  $condition: ModelCommentConditionInput
-) {
-  deleteComment(input: $input, condition: $condition) {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateUser(
-  $input: CreateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  createUser(input: $input, condition: $condition) {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateUser(
-  $input: UpdateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  updateUser(input: $input, condition: $condition) {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteUser(
-  $input: DeleteUserInput!
-  $condition: ModelUserConditionInput
-) {
-  deleteUser(input: $input, condition: $condition) {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
 mutation CreateStocks(
   $input: CreateStocksInput!
   $condition: ModelStocksConditionInput
 ) {
   createStocks(input: $input, condition: $condition) {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -184,13 +28,19 @@ mutation UpdateStocks(
 ) {
   updateStocks(input: $input, condition: $condition) {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -201,58 +51,88 @@ mutation DeleteStocks(
 ) {
   deleteStocks(input: $input, condition: $condition) {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
 }
-mutation CreateArtist(
-  $input: CreateArtistInput!
-  $condition: ModelArtistConditionInput
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  createArtist(input: $input, condition: $condition) {
+  createUser(input: $input, condition: $condition) {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
 }
-mutation UpdateArtist(
-  $input: UpdateArtistInput!
-  $condition: ModelArtistConditionInput
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  updateArtist(input: $input, condition: $condition) {
+  updateUser(input: $input, condition: $condition) {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
 }
-mutation DeleteArtist(
-  $input: DeleteArtistInput!
-  $condition: ModelArtistConditionInput
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
 ) {
-  deleteArtist(input: $input, condition: $condition) {
+  deleteUser(input: $input, condition: $condition) {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }

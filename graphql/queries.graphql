@@ -1,243 +1,20 @@
 # this is an auto generated file. This will be overwritten
-query SyncPosts(
-  $filter: ModelPostFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncPosts(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      title
-      userID
-      content
-      likes
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetPost($id: ID!) {
-  getPost(id: $id) {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListPosts(
-  $filter: ModelPostFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      title
-      userID
-      content
-      likes
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncComments(
-  $filter: ModelCommentFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncComments(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      postID
-      content
-      username
-      userID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetComment($id: ID!) {
-  getComment(id: $id) {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListComments(
-  $filter: ModelCommentFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      postID
-      content
-      username
-      userID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUsers(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      privacy
-      followers
-      following
-      blocked
-      muted
-      email
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetUser($id: ID!) {
-  getUser(id: $id) {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      privacy
-      followers
-      following
-      blocked
-      muted
-      email
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncStocks(
-  $filter: ModelStocksFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncStocks(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      title
-      quantity
-      userID
-      artistID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
 query GetStocks($id: ID!) {
   getStocks(id: $id) {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -250,75 +27,58 @@ query ListStockss(
   listStockss(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      title
-      quantity
-      userID
-      artistID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncArtists(
-  $filter: ModelArtistFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncArtists(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      value
       name
-      _version
-      _deleted
-      _lastChangedAt
+      bopid
+      quantity
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
     nextToken
-    startedAt
   }
 }
-query GetArtist($id: ID!) {
-  getArtist(id: $id) {
+query GetUser($id: ID!) {
+  getUser(id: $id) {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
 }
-query ListArtists(
-  $filter: ModelArtistFilterInput
+query ListUsers(
+  $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listArtists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      value
-      name
-      _version
-      _deleted
-      _lastChangedAt
+      username
+      email
+      portfolio {
+        nextToken
+      }
       createdAt
       updatedAt
     }
     nextToken
-    startedAt
   }
 }
