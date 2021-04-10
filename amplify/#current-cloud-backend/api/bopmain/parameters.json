@@ -1,5 +1,0 @@
-{
-  "AppSyncApiName": "bopmain",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
-}

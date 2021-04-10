@@ -1,46 +1,15 @@
-type Todo @model {
+type Stocks @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
-  description: String
-}
-type Post @model  {
-  id: ID!
-  title: String!
-  userID: ID!
-  content: String!
-  likes: Float!
-}
-
-type Comment @model {
-  id: ID!
-  postID: ID!
-  content: String!
-  username: String!
-  userID: ID!
-}
-
-type User @model  {
-  id: ID!
-  name: String!
-  privacy: String!
-  followers: [String]
-  following: [String]
-  blocked: [String]
-  muted: [String]
-  email: String!
-  
-}
-
-type Stocks @model @key(name: "byUser", fields: ["userID"]) {
-  id: ID!
-  title: String!
+  bopid: String!
   quantity: String!
-  userID: ID!
-  artistID: ID!
+  user: User @connection(name: "Portfolio")
 }
 
-type Artist @model {
-    id: ID!
-    value: Float!
-    name: String!
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  email: String
+  portfolio: [Stocks] @connection(name: "Portfolio")
 }
+ 

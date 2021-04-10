@@ -1,149 +1,20 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreatePost {
-  onCreatePost {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdatePost {
-  onUpdatePost {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeletePost {
-  onDeletePost {
-    id
-    title
-    userID
-    content
-    likes
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateComment {
-  onCreateComment {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateComment {
-  onUpdateComment {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteComment {
-  onDeleteComment {
-    id
-    postID
-    content
-    username
-    userID
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateUser {
-  onCreateUser {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateUser {
-  onUpdateUser {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteUser {
-  onDeleteUser {
-    id
-    name
-    privacy
-    followers
-    following
-    blocked
-    muted
-    email
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
 subscription OnCreateStocks {
   onCreateStocks {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -151,13 +22,19 @@ subscription OnCreateStocks {
 subscription OnUpdateStocks {
   onUpdateStocks {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
@@ -165,49 +42,79 @@ subscription OnUpdateStocks {
 subscription OnDeleteStocks {
   onDeleteStocks {
     id
-    title
+    name
+    bopid
     quantity
-    userID
-    artistID
-    _version
-    _deleted
-    _lastChangedAt
+    user {
+      id
+      username
+      email
+      portfolio {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }
 }
-subscription OnCreateArtist {
-  onCreateArtist {
+subscription OnCreateUser {
+  onCreateUser {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
 }
-subscription OnUpdateArtist {
-  onUpdateArtist {
+subscription OnUpdateUser {
+  onUpdateUser {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
 }
-subscription OnDeleteArtist {
-  onDeleteArtist {
+subscription OnDeleteUser {
+  onDeleteUser {
     id
-    value
-    name
-    _version
-    _deleted
-    _lastChangedAt
+    username
+    email
+    portfolio {
+      items {
+        id
+        name
+        bopid
+        quantity
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     createdAt
     updatedAt
   }
